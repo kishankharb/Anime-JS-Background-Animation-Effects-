@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Anime JS Background Animation Effects </title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" ></script>
+</head>
+
+<body>
+  <div class="box">
+<h1> Animation Background </br> Effects  with Pure Css </h1>
+ 
+    </div>
+  <script>
+ const box = document.querySelector('.box');
+    for(let i = 0; i <= 100; i ++){
+      const blocks = document.createElement('div');
+      blocks.classList.add('block');
+      box.appendChild(blocks)
+    }
+    function animeblocks(){
+      anime({
+        targets:'.block',
+        translateX: function(){
+          return anime.random(-700,700);
+        } ,
+         translateY: function(){
+          return anime.random(-500,500);
+        } ,
+         scale: function(){
+          return anime.random(1,5);
+        } ,
+        easing:"linear",
+        duration :2000,
+        delay :anime.stagger(10),
+        complete :animeblocks
+      })
+    }
+ animeblocks();
+    
+  </script>
+  <script src="anime.min.js"></script>
+
+    <script src="script.js"></script>
+
+ <!--
+  This script places a badge on your repl's full-browser view back to your repl's cover
+  page. Try various colors for the theme: dark, light, red, orange, yellow, lime, green,
+  teal, blue, blurple, magenta, pink!
+  -->
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script> 
+</body>
+
+</html>
